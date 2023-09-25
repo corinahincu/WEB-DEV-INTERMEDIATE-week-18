@@ -1,29 +1,19 @@
-// explicit types
-var character;
-var age;
-var isLoggedIn;
-//age: 'luigi'
-age = 30;
-isLoggedIn = true;
-// arrays
-var ninjas = []; // it's suggested to initialize with empty array, like in this example, because, in case we add for ex. ninjas.push('shaun'), we will not have an error in console, because in that case, if we will not declare an empty array, we don't declare nici un array,si ca si cum, we just inform, that in the future it will be string,but none array is declared
-ninjas = ['yoshi', 'mario'];
-// union types
+// any type
+var age = 25;
+age = true;
+console.log(age);
+age = 'hello';
+console.log(age);
+age = { name: 'luigi' };
+console.log(age);
 var mixed = [];
-mixed.push('hello');
-mixed.push(20);
+mixed.push('mario');
+mixed.push(5);
 mixed.push(false);
 console.log(mixed);
-var uid;
-uid = '123';
-uid = 123;
-// if we write the type in front of an array, we write it in parethesis, but if not, then without
-//objects
-var ninjaOne;
-ninjaOne = { name: 'yoshi', age: 30 };
-var ninjaTwo;
-ninjaTwo = {
-    name: 'mario',
-    age: 20,
-    beltColour: 'black'
-};
+var ninja;
+ninja = { name: 'yoshi', age: 25 };
+console.log(ninja);
+ninja = { name: 25, age: 'yoshi' };
+console.log(ninja);
+// it can be useful in certain situation, but we need to be careful using any, because it can create errors, like in the example above, the name can't be a number etc.

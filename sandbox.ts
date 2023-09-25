@@ -1,44 +1,26 @@
-// explicit types
-let character: string
-let age: number
-let isLoggedIn: boolean
 
-//age: 'luigi'
-age = 30
+// any type
 
-isLoggedIn = true
+let age: any = 25
 
+age = true
+console.log(age)
 
-// arrays
-let ninjas: string[] = [] // it's suggested to initialize with empty array, like in this example, because, in case we add for ex. ninjas.push('shaun'), we will not have an error in console, because in that case, if we will not declare an empty array, we don't declare nici un array,si ca si cum, we just inform, that in the future it will be string,but none array is declared
+age = 'hello'
+console.log(age)
 
-ninjas = ['yoshi','mario']
+age = { name: 'luigi'}
+console.log(age)
 
-
-// union types
-let mixed: (string|number|boolean)[] = []
-mixed.push('hello')
-mixed.push(20)
+let mixed: any[] = []
+mixed.push('mario')
+mixed.push(5)
 mixed.push(false)
 console.log(mixed)
 
-let uid: string|number 
-uid = '123'
-uid = 123
-// if we write the type in front of an array, we write it in parethesis, but if not, then without
-
-
-//objects
-let ninjaOne: object
-ninjaOne = { name:'yoshi', age: 30}
-
-let ninjaTwo: {
-  name: string,
-  age: number,
-  beltColour: string
-}
-ninjaTwo = {
-  name:'mario', 
-  age:20, 
-  beltColour:'black'
-}
+let ninja: { name: any, age: any}
+ninja = { name:'yoshi', age: 25}
+console.log(ninja)
+ninja = { name:25, age: 'yoshi'}
+console.log(ninja)
+// it can be useful in certain situation, but we need to be careful using any, because it can create errors, like in the example above, the name can't be a number etc.
