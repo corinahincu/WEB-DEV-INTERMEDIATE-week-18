@@ -1,27 +1,31 @@
-// TYPE ALIASES
+// FUNCTION SIGNATURES
 
-/* const logDetails = (uid: string | number, item: string) =>{
-  console.log(`${item} has a uid of ${uid}`)
+/* let greet: Function
+
+()=>{
+
+} */ // that's a function signature, with no parameters
+
+// example 1 
+let greet: (a:string,b:string) =>void
+greet = (name:string,greeting:string)=>{
+  console.log(`${name} says ${greeting}`)
+} // typescript enfers that we are returning void in that case, because we don't actually return anything
+
+// example 2
+let calc: (a:number,b:number,c:string) => number
+calc = (numOne:number,numTwo:number,action:string)=>{
+  if(action === 'add'){
+    return numOne + numTwo
+  } else {
+    return numOne - numTwo
+  }
 }
 
-const greet = (user: {name: string, uid:string | number}) => {
-  console.log(`${user.name} says hello`)
-}
+// example 3
+let logDetails: (obj: {name:string,age:number}) => void
 
-const greetAgain = (user: {name: string, uid:string | number}) => {
-  console.log(`${user.name} says hello`)
-} */
-// in that case we write the same code over and over again, to go around that we can make our own type aliases, to define them first, and use them as many times we want in different functions :
-//  |
-//  v
-
-type StringOrNum = string | number
-type objWithName = { name: string, uid: StringOrNum}
-
-const logDetails = (uid: StringOrNum, item: string) =>{
-  console.log(`${item} has a uid of ${uid}`)
-}
-
-const greet = (user: objWithName) => {
-  console.log(`${user.name} says hello`)
+type person = {name:string, age:number}
+logDetails = (ninja:person)=>{
+  console.log(`${ninja.name} is ${ninja.age} years old`)
 }
